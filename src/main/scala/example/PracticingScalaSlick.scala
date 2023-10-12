@@ -21,6 +21,10 @@ object PracticingScalaSlick {
     val dbConfig = DatabaseConfig.forConfig[JdbcProfile]("movie-db")
     val movieRepo = new MovieRepo(dbConfig)
 
+    movieRepo.create(Movie(None, "Justice League"))
+    movieRepo.create(Movie(None, "Man of Steel"))
+    movieRepo.create(Movie(None, "Batman v Superman"))
+
     val list = Await.ready(movieRepo.list(), Duration.Inf)
     list.foreach(println)
 

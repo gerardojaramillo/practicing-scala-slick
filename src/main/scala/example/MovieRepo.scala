@@ -53,7 +53,7 @@ class MovieRepo(val dbConfig: DatabaseConfig[JdbcProfile])(implicit
   }
 
   def create(movie: Movie) = db.run {
-    ???
+    movies returning movies.map(_.movieid) += movie
   }
 
 }
