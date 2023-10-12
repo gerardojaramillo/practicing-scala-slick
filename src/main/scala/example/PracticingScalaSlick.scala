@@ -1,4 +1,8 @@
-/** PracticingScalaSlick.scala
+/** PracticingScalaSlick.scala Practicing Slick
+  *
+  * @author
+  *   Gerardo Jaramillo
+  * @version 0.0.1
   */
 
 package example
@@ -14,7 +18,7 @@ object PracticingScalaSlick {
 
   def main(args: Array[String]): Unit = {
     println("Practicing Scala Slick !")
-    val dbConfig = DatabaseConfig.forConfig[JdbcProfile]("")
+    val dbConfig = DatabaseConfig.forConfig[JdbcProfile]("movie-db")
     val movieRepo = new MovieRepo(dbConfig)
 
     val list = Await.ready(movieRepo.list(), Duration.Inf)
